@@ -11,13 +11,7 @@ namespace MauiTreeView
 
         private ObservableCollection<FileManager>? imageNodeInfo;
 
-        private Command<Object>? tappedCommand;
-
-        public Command<object>? TappedCommand
-        {
-            get { return tappedCommand; }
-            set { tappedCommand = value; }
-        }
+        private Command<object>? tappedCommand;
 
         #endregion
 
@@ -39,6 +33,8 @@ namespace MauiTreeView
         {
             var tappedNode = obj as Syncfusion.TreeView.Engine.TreeViewNode;
             string nodepath = GetNodePath(tappedNode);
+
+            // Display the path of the tapped node in display alert.
             App.Current!.MainPage!.DisplayAlert("Path ", nodepath, "Ok");
         }
 
@@ -76,6 +72,12 @@ namespace MauiTreeView
         {
             get { return imageNodeInfo; }
             set { this.imageNodeInfo = value; }
+        }
+
+        public Command<object>? TappedCommand
+        {
+            get { return tappedCommand; }
+            set { tappedCommand = value; }
         }
 
         #endregion
